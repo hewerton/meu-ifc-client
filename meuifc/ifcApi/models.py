@@ -31,3 +31,17 @@ class Avaliacoes(models.Model):
     )
 
     tipo = models.CharField(max_length=1, choices=avaliacoes_choice)
+
+class Representante(models.Model):
+    nome = models.CharField(max_length=50)
+
+    turma = models.ForeignKey("Turma", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nome
+
+class Turma(models.Model):
+    nome = models.CharField(max_length=2)
+
+    def __str__(self):
+        return self.nome

@@ -15,14 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from ifcApi.views import CardapioViewSet, AvaliacoesViewSet
+from ifcApi.views import CardapioViewSet, AvaliacoesViewSet, TurmaViewSet, RepresentanteViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'cardapio', CardapioViewSet)
 
-router.register(r'avaliacoes', AvaliacoesViewSet)
+router.register(r'representante/avaliacoes', AvaliacoesViewSet)
 
+router.register(r'turma', TurmaViewSet)
+router.register(r'representante', RepresentanteViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
